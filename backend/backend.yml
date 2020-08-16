@@ -25,11 +25,6 @@ spec:
             - name: storage
               mountPath: /app/files
           env:
-            - name: DB_URL
-              valueFrom:
-                secretKeyRef:
-                  name: backend-secret
-                  key: DB_URL
             - name: DB_USERNAME
               valueFrom:
                 secretKeyRef:
