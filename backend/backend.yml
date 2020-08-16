@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  selector:
+    matchLabels:
+      app: backend
+  replicas: 2
+  revisionHistoryLimit: 5
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: gidimuts/backend
+          resources:
+            requests:
+              cpu: 100m
+              memory: 300Mi
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: storage
+              mountPath: /app/files
+          env:
+            - name: DB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: DB_URL
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: DB_USERNAME
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: DB_PASSWORD
+      volumes:
+        - name: storage
+          persistentVolumeClaim:
+            claimName: bulkfiles-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+spec:
+  ports:
+    - port: 9091
+      targetPort: 9091
+  selector:
+    app: backend
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: bulkfiles-pvc
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 7Gi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: bulkfiles-pv-volume
+  labels:
+    type: local
+spec:
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: standard
+  capacity:
+    storage: 7Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/files"
