@@ -25,6 +25,8 @@ spec:
             - name: storage
               mountPath: /app/files
           env:
+            - name: AUTH_URL
+              value: "https://myauthurl.com"
             - name: DB_USERNAME
               valueFrom:
                 secretKeyRef:
