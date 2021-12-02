@@ -1,0 +1,31 @@
+Recap:
+Kubernetes arch
+Kubernetes components: API server, scheduler
+kubernetes pods (core dns, weave net, kube-proxy)
+
+
+
+
+
+Hosting a site in NGINX
+1) Build code
+2) Nginx config
+   -Create folder
+   -Copy files
+   - Configure nginx config
+   - Restart NGINX
+   
+-Copy files
+   
+   
+
+The container way
+ 1) Docker build
+ 2) docker push
+ 3) configure yml files
+ 4) kubectl apply -f  
+ 
+ 
+replicas: 1
+image: nginx
+service: 80
