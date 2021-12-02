@@ -1,0 +1,2 @@
+To reclaim space run:  (Removes layers which are not being referenced by any container)
+docker image prune -a 
