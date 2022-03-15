@@ -1,0 +1,11 @@
+I recently faced this error "no space left on device", on checking the space left on the disk it was more than enough.
+
+The system was maxing out on memory at some point, I suspected it to be a resource issue. We added more RAM, CPU and mounted a new disk.
+
+The article below will be on the actions we did, and maybe find out if it was the right thing to do or not.
+
+
+inotify issue: https://github.com/tilt-dev/tilt/issues/3916
+ ** inodes
+ ** changing docker default directory
+ ** allocating resources to containers
