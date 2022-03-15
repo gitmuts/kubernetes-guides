@@ -6,6 +6,11 @@ The article below will be on the actions we did, and maybe find out if it was th
 
 
 inotify issue: https://github.com/tilt-dev/tilt/issues/3916
+
+[inotify monitors changes to files and notifies applications.](https://en.wikipedia.org/wiki/Inotify)
+
+Does "kubectl logs " use inotify?
+
  ** inodes
  ** changing docker default directory
  ** allocating resources to containers
