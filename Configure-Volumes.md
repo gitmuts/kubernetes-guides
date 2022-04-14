@@ -1,3 +1,13 @@
+## Install NFS 
+
+```
+sudo yum -y install nfs-utils
+
+sudo systemctl enable nfs-server.service
+sudo systemctl start nfs-server.service
+
+```
+
 ## Create a directory on the NFS server
 ```
 
