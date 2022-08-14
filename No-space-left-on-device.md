@@ -17,3 +17,12 @@ Does "kubectl logs " use inotify?
  
  
 Script to check inotify used: https://github.com/fatso83/dotfiles/blob/master/utils/scripts/inotify-consumers
+
+
+More troubleshooting:
+cat /proc/sys/fs/inotify/max_user_watches
+
+If 8k increase
+
+sudo sysctl fs.inotify.max_user_watches=1048576
+sudo sysctl -p
