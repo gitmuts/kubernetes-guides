@@ -14,3 +14,6 @@ Does "kubectl logs " use inotify?
  ** inodes
  ** changing docker default directory
  ** allocating resources to containers
+ 
+ 
+Script to check inotify used: https://github.com/fatso83/dotfiles/blob/master/utils/scripts/inotify-consumers
