@@ -1,5 +1,5 @@
 ###### On the master server run:
-`sudo kubeadm alpha certs renew all`
+`sudo kubeadm certs renew all`
 
 ###### To confirm all is well run:
  `kubectl get pods`
