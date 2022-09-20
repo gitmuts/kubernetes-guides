@@ -1,6 +1,9 @@
 ###### On the master server run:
 `sudo kubeadm certs renew all`
 
+`sudo systemctl restart kubelet`
+`sudo systemctl restart containerd`
+
 ###### To confirm all is well run:
  `kubectl get pods`
  ###### Incase you get the error: 
